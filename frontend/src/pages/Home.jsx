@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
   const [employeeList, setEmployeeList] = useState([]);
   const navigate = useNavigate();
@@ -13,8 +13,8 @@ const Home = () => {
         },
       });
       const result = await response.json();
-      if (result.success) {
-        setEmployeeList(result.data);
+      if (result?.success) {
+        setEmployeeList(result?.data);
       } else {
         navigate("/login");
       }
@@ -22,7 +22,6 @@ const Home = () => {
       navigate("/login");
     }
   }
-  console.log(employeeList);
   useEffect(() => {
     fetchEmployeeList();
   }, []);
@@ -32,6 +31,14 @@ const Home = () => {
         Employee Management System
       </h1>
       <div className="my-10">
+        <div className="flex gap-3">
+          <h3 className="my-10 text-lg text-[#dcdde1] font-semibold tracking-wide">
+            Total Number of Employees :
+          </h3>
+          <p className="my-10 text-lg text-slate-200 font-semibold tracking-wide">
+            {employeeList?.employeeData?.length}
+          </p>
+        </div>
         <div className="overflow-x-auto">
           <table className="table table-md">
             <thead>
@@ -43,18 +50,28 @@ const Home = () => {
                 <th>Working Status</th>
                 <th>Contact Number</th>
                 <th>HOD Name</th>
+                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>1</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Littel, Schaden and Vandervort</td>
-                <td>Canada</td>
-                <td>12/16/2020</td>
-                <td>Blue</td>
-              </tr>
+              {employeeList?.employeeData?.map((employee, index) => {
+                return (
+                  <tr key={index}>
+                    <th>{index + 1}</th>
+                    <td>{employee.employeeCode}</td>
+                    <td>{employee.employeeName}</td>
+                    <td>{employee.employeeDepartment}</td>
+                    <td>{employee.workingStatus}</td>
+                    <td>{employee.employeeContactNumber}</td>
+                    <td>{employee.nameOfHOD}</td>
+                    <td>
+                      <Link to={`/update-employee/${employee._id}`}>
+                        <i className="fa-solid fa-pen-to-square text-lg"></i>
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

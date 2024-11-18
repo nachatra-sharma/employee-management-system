@@ -108,7 +108,7 @@ const FormTable = () => {
     {
       label: "Employee Pan Number",
       name: "employeePanNumber",
-      required: true,
+      required: false,
       type: "text",
     },
     {
@@ -116,7 +116,7 @@ const FormTable = () => {
       name: "employeeMaritialStatus",
       required: true,
       type: "text",
-      enum: ["single", "married"],
+      enum: ["single", "married", "widow"],
     },
     {
       label: "Employee Nominee Name",
@@ -143,15 +143,9 @@ const FormTable = () => {
       type: "date",
     },
     {
-      label: "Employee Working Duration",
-      name: "employeeWorkingDuration",
-      required: false,
-      type: "text",
-    },
-    {
       label: "Employee Working Hours",
       name: "employeeWorkingHours",
-      required: false,
+      required: true,
       type: "text",
     },
     {
@@ -164,25 +158,25 @@ const FormTable = () => {
     {
       label: "Employee Account Number",
       name: "employeeAccountNumber",
-      required: true,
+      required: false,
       type: "number",
     },
     {
       label: "Employee IFSC Code",
       name: "employeeIFSCCode",
-      required: true,
+      required: false,
       type: "text",
     },
     {
       label: "Employee Bank Name",
       name: "employeeBankName",
-      required: true,
+      required: false,
       type: "text",
     },
     {
       label: "Employee Email",
       name: "employeeEmail",
-      required: true,
+      required: false,
       type: "email",
     },
     {
@@ -197,9 +191,9 @@ const FormTable = () => {
       required: false,
       type: "text",
     },
-    { label: "Name of HOD", name: "nameOfHOD", required: false, type: "text" },
+    { label: "Name of HOD", name: "nameOfHOD", required: true, type: "text" },
     { label: "HOD Email", name: "HODEmail", required: false, type: "email" },
-    { label: "HOD Mobile", name: "HODMobile", required: false, type: "tel" },
+    { label: "HOD Mobile", name: "HODMobile", required: true, type: "tel" },
   ];
 
   const [formValues, setFormValues] = useState({

@@ -22,7 +22,6 @@ async function handleGetAllEmployee(req, res) {
 async function handleCreateEmployee(req, res) {
   try {
     const data = req.body;
-    console.log(data);
     if (!data) {
       throw new Error("Fill all the required fields");
     }
@@ -49,7 +48,7 @@ async function handleSingleEmployee(req, res) {
     if (!id) {
       throw new Error("ID is not valid");
     }
-    console.log(id);
+
     const employee = await Employee.findById({
       _id: id,
     });
@@ -90,7 +89,7 @@ async function handleUpdateEmployee(req, res) {
       },
       data
     );
-    console.log(employee);
+
     return res.status(200).json({
       success: true,
       message: "successfully update the employee table",

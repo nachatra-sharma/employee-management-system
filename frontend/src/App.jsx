@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Navbar from "./component/Navbar";
 import CreateEmployee from "./pages/CreateEmployee";
+import UpdateEmployee from "./pages/UpdateEmployee";
 
 const App = () => {
   return (
@@ -13,6 +14,10 @@ const App = () => {
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/create-employee" element={<CreateEmployee />}></Route>
+          <Route
+            path="/update-employee/:id"
+            element={<UpdateEmployee />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </div>

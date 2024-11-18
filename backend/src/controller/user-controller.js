@@ -12,7 +12,6 @@ async function handleCurrentUser(req, res) {
       email: email,
     }).select("-password");
 
-    console.log("current user", user);
     return res.json({
       status: true,
       message: "successfully fetched the user info",
