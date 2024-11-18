@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils/constant";
 const Home = () => {
   const [employeeList, setEmployeeList] = useState([]);
   const navigate = useNavigate();
   async function fetchEmployeeList() {
     try {
-      const response = await fetch("http://localhost:7777/api/v1/", {
+      const response = await fetch(BASE_URL + "/api/v1/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

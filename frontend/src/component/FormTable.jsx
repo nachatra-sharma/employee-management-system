@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BASE_URL } from "../utils/constant";
 const FormTable = () => {
   const fields = [
     {
@@ -266,17 +267,14 @@ const FormTable = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(
-      "http://localhost:7777/api/v1/create-employee",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: localStorage.getItem("token"),
-        },
-        body: JSON.stringify(formValues),
-      }
-    );
+    const response = await fetch(BASE_URL + "/api/v1/create-employee", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify(formValues),
+    });
     const result = await response.json();
     console.log(result);
   };

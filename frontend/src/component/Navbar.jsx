@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import profile from "../assets/profile.jpeg";
+import { BASE_URL } from "../utils/constant";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -8,7 +9,7 @@ const Navbar = () => {
 
   async function fetchEmployeeList() {
     try {
-      const response = await fetch("http://localhost:7777/api/v1/user", {
+      const response = await fetch(BASE_URL + "/api/v1/user", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

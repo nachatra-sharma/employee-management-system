@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { BASE_URL } from "../utils/constant";
 
 const Form = () => {
   const params = useParams();
@@ -262,16 +263,13 @@ const Form = () => {
   }
 
   async function getUserInfo() {
-    const response = await fetch(
-      `http://localhost:7777/api/v1/employee/${params.id}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: localStorage.getItem("token"),
-        },
-      }
-    );
+    const response = await fetch(BASE_URL + `/api/v1/employee/${params.id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
+      },
+    });
     const result = await response.json();
 
     if (result?.data?.employee) {
@@ -299,17 +297,14 @@ const Form = () => {
 
   const handleSubmit = async (e, id) => {
     e.preventDefault();
-    const response = await fetch(
-      `http://localhost:7777/api/v1/update-employee/${id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: localStorage.getItem("token"),
-        },
-        body: JSON.stringify(formValues),
-      }
-    );
+    const response = await fetch(BASE_URL + `/api/v1/update-employee/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify(formValues),
+    });
     const result = await response.json();
     if (result?.success) {
       toast.success("Employee Updated Successfully");

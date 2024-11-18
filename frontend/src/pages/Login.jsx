@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils/constant";
 const Login = () => {
   const navigate = useNavigate();
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -10,7 +11,7 @@ const Login = () => {
 
   async function handleUserLogin() {
     try {
-      const response = await fetch("http://localhost:7777/api/v1/login", {
+      const response = await fetch(BASE_URL + "/api/v1/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
