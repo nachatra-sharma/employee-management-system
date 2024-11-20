@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Navbar from "./component/Navbar";
 import CreateEmployee from "./pages/CreateEmployee";
 import UpdateEmployee from "./pages/UpdateEmployee";
+import "./App.css";
 
 const App = () => {
   return (

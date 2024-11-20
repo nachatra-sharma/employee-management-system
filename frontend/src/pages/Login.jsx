@@ -36,11 +36,11 @@ const Login = () => {
     }
   }
   return (
-    <div className="w-[100%] h-[100%] flex justify-center items-center flex-col gap-10">
+    <div className="w-[100%] h-[80%] flex justify-center items-center flex-col gap-10">
       <h1 className="text-3xl text-[#dcdde1] tracking-wider font-bold text-center">
-        Login Page
+        Admin Login Page
       </h1>
-      <div className="border-2 py-10 px-10 flex flex-col gap-10 border-slate-500 rounded-md w-[30%]">
+      <div className="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-lg backdrop-brightness-110 backdrop-saturate-150 border-2 py-10 px-10 flex flex-col gap-10 border-slate-100 rounded-md w-[32%] shadow-xl">
         <div className="flex justify-between items-center">
           <label htmlFor="email" className="text-lg text-[#dcdde1]">
             Email:
@@ -53,7 +53,7 @@ const Login = () => {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="outline-none border-[1px] rounded-md px-2 py-1 border-slate-600"
+            className="text-white bg-transparent tracking-wider outline-none border-[1px] rounded-md px-2 py-1 border-slate-600"
           />
         </div>
         <div className="flex justify-between items-center relative">
@@ -68,7 +68,7 @@ const Login = () => {
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="outline-none border-[1px] rounded-md px-2 py-1 border-slate-600"
+            className="text-white bg-transparent tracking-wider outline-none border-[1px] rounded-md px-2 py-1 border-slate-600"
           />
           {passwordVisible ? (
             <i
@@ -85,7 +85,7 @@ const Login = () => {
         <div className="flex gap-3 items-center justify-center">
           <button
             onClick={handleUserLogin}
-            className="text-md bg-gray-700 py-2 px-5 rounded-md text-white"
+            className="text-md bg-[#8b5cf64d] tracking-wide py-2 px-7 rounded-md text-white hover:scale-x-105 duration-100 hover:bg-[#522fa170]"
           >
             Login User
           </button>

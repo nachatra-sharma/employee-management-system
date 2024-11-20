@@ -39,9 +39,9 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar bg-base-200 rounded-md mb-5">
+    <div className="navbar bg-[#3b82f699] rounded-md mb-5">
       <div className="flex-1">
-        <Link to={"/"} className="btn btn-ghost text-xl">
+        <Link to={"/"} className="btn btn-ghost text-white text-xl">
           Dwaterflo
         </Link>
       </div>

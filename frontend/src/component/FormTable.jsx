@@ -25,7 +25,7 @@ const FormTable = () => {
       name: "gender",
       required: true,
       type: "text",
-      enum: ["male", "female"],
+      enum: ["------Select Gender------", "male", "female"],
     },
     {
       label: "Employee Father Name",
@@ -62,7 +62,7 @@ const FormTable = () => {
       name: "workingStatus",
       required: true,
       type: "text",
-      enum: ["left", "working"],
+      enum: ["------Select Working Status------", "left", "working"],
     },
     {
       label: "Left Status",
@@ -117,7 +117,7 @@ const FormTable = () => {
       name: "employeeMaritialStatus",
       required: true,
       type: "text",
-      enum: ["single", "married", "widow"],
+      enum: ["------Select Marital Status------", "single", "married", "widow"],
     },
     {
       label: "Employee Nominee Name",
@@ -154,7 +154,7 @@ const FormTable = () => {
       name: "employeePaymentMode",
       required: true,
       type: "text",
-      enum: ["cash", "bank"],
+      enum: ["------Select Payment Mode------", "cash", "bank"],
     },
     {
       label: "Employee Account Number",
@@ -281,7 +281,7 @@ const FormTable = () => {
   return (
     <>
       <div className="flex gap-5 flex-col items-center w-[90%]">
-        <div className="border-2 py-10 px-10 flex flex-wrap gap-10 border-gray-500 rounded-md w-[90%]">
+        <div className="border-2 py-10 px-10 flex flex-wrap gap-10 rounded-md w-[90%] bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-lg backdrop-brightness-110 backdrop-saturate-150 border-slate-100 shadow-xl">
           {fields.map((field, index) => (
             <div className="flex justify-between mt-5 w-[100%]" key={index}>
               <label htmlFor={field.name} className="text-lg w-[40%]">
@@ -294,7 +294,7 @@ const FormTable = () => {
                   id={field.name}
                   value={formValues[field.name]}
                   onChange={(e) => handleChange(e)}
-                  className="outline-none border-[1px] rounded-md px-2 py-1 border-slate-600 w-[40%]"
+                  className="outline-none border-[1px] rounded-md px-2 py-1 border-slate-600 w-[40%] bg-transparent"
                 >
                   {field.enum.map((option, idx) => (
                     <option key={idx} value={option}>
@@ -311,14 +311,14 @@ const FormTable = () => {
                   onChange={(e) => handleChange(e)}
                   placeholder={`Enter ${field.label}`}
                   {...(field.required ? { required: true } : {})}
-                  className="outline-none border-[1px] rounded-md px-2 py-1 border-slate-600 w-[40%]"
+                  className="outline-none border-[1px] rounded-md px-2 py-1 border-slate-600 w-[40%] bg-transparent"
                 />
               )}
             </div>
           ))}
         </div>
         <button
-          className="text-md bg-gray-700 py-2 px-5 w-[90%] rounded-md text-white"
+          className="text-md bg-[#8b5cf64d] tracking-wide w-[90%] py-2 rounded-md text-white hover:scale-x-105 duration-100 hover:bg-[#522fa170]"
           onClick={(e) => handleSubmit(e)}
         >
           Create User
